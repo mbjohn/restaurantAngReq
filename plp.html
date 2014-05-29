@@ -1,0 +1,31 @@
+<div class="row" >
+		  <div class="list-group" >
+		   Search: <input ng-model="query"/>
+		   
+		   Sort by:
+      <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="price">Lowest</option>
+      </select>
+
+          <div  class="list-group-item" ng-repeat="menuItem in menuItems | filter:query | orderBy:orderProp">
+		  <a href="#/menuItem/{{menuItem.id}}" >
+                  <div class="media col-md-3">
+                   
+                        <img class="media-object img-rounded img-responsive" src="http://placehold.it/350x250" alt="placehold.it/350x250" />
+                   
+                </div>
+                <div class="col-md-6">
+                    <h4 class="list-group-item-heading"> {{menuItem.name}} </h4>
+                    <p class="list-group-item-text"> {{menuItem.desc}}
+                    </p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <button type="button" class="btn btn-info ">Rs. {{menuItem.price}}</button>
+                    
+                </div>
+                </a>
+          </div>
+
+        </div>
+        </div>
